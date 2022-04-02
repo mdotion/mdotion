@@ -1,0 +1,42 @@
+.split-view-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.split-view-container.dragging {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.split-view-view {
+  position: absolute;
+}
+
+.split-view-container.horizontal .split-view-view {
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.split-view-container.vertical > .split-view-view {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.split-view-drag-handle {
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  background-color: hsl(0, 0%, 80%);
+  z-index: 100;
+  cursor: col-resize;
+  &:hover {
+    background-color: blue;
+  }
+}
+
+.split-view-container.dragging > .split-view-drag-handle {
+  background-color: blue;
+}

@@ -1,0 +1,62 @@
+$base: 8px;
+$spacing: (
+  auto: "auto",
+  0: 0,
+  1: 1px,
+  xs: $base * 0.5,
+  sm: $base,
+  md: $base * 1.5,
+  lg: $base * 2,
+  xl: $base * 3,
+  2xl: $base * 4,
+  3xl: $base * 5,
+  4xl: $base * 6,
+  5xl: $base * 7,
+  6xl: $base * 8,
+  7xl: $base * 9,
+);
+
+:root {
+  @each $size, $value in $spacing {
+    .mr-#{$size} {
+      margin-right: #{$value};
+    }
+    .ml-#{$size} {
+      margin-left: #{$value};
+    }
+    .mt-#{$size} {
+      margin-top: #{$value};
+    }
+    .mb-#{$size} {
+      margin-bottom: #{$value};
+    }
+    .my-#{$size} {
+      margin-top: #{$value};
+      margin-bottom: #{$value};
+    }
+    .mx-#{$size} {
+      margin-left: #{$value};
+      margin-right: #{$value};
+    }
+    .pr-#{$size} {
+      padding-right: #{$value};
+    }
+    .pl-#{$size} {
+      padding-left: #{$value};
+    }
+    .pt-#{$size} {
+      padding-top: #{$value};
+    }
+    .pb-#{$size} {
+      padding-bottom: #{$value};
+    }
+    .py-#{$size} {
+      padding-top: #{$value};
+      padding-bottom: #{$value};
+    }
+    .px-#{$size} {
+      padding-left: #{$value};
+      padding-right: #{$value};
+    }
+  }
+}
