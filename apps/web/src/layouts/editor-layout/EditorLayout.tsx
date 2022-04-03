@@ -1,108 +1,90 @@
 import { Outlet } from "react-router-dom";
 import { ActivityBar } from "../../components/activity-bar";
-import { useCallback, useEffect, useState } from "react";
-export type ActivityBarMenu = {
-  id: string;
-  label: string;
-  icon: JSX.Element;
-  isHidden?: boolean;
-  isDisabled?: boolean;
-  onClick?: () => void;
-  showOnBottom?: boolean;
-}[];
+import { SplitViewContainer, SplitViewView } from "@mdotion/split-view";
 
 const EditorLayout = () => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [viewOneWidth, setViewOneWidth] = useState(56);
-  const [viewTwoWidth, setViewTwoWidth] = useState(320);
-  const [viewThreeWidth, setViewThreeWidth] = useState(
-    window.innerWidth - viewOneWidth - viewTwoWidth
-  );
-
-  const onWindowResize = useCallback(() => {
-    setViewThreeWidth(window.innerWidth - viewOneWidth - viewTwoWidth);
-  }, [viewOneWidth, viewTwoWidth, setViewThreeWidth]);
-
-  const onDragStart = useCallback(() => {
-    setIsDragging(true);
-  }, [setIsDragging]);
-
-  const onDragEnd = useCallback(() => {
-    setIsDragging(false);
-  }, [setIsDragging]);
-
-  const onDrag = useCallback(
-    (e: MouseEvent) => {
-      if (e.clientX !== 0) {
-        const viewTwoWidth = Math.min(
-          Math.max(e.clientX - viewOneWidth, 100),
-          600
-        );
-        setViewTwoWidth(viewTwoWidth);
-        setViewThreeWidth(window.innerWidth - viewOneWidth - viewTwoWidth);
-      }
-    },
-    [viewOneWidth, setViewTwoWidth, setViewThreeWidth]
-  );
-
-  useEffect(() => {
-    window.addEventListener("resize", onWindowResize);
-    if (isDragging) {
-      window.addEventListener("mousemove", onDrag);
-      window.addEventListener("mouseup", onDragEnd);
-    }
-    return () => {
-      window.removeEventListener("resize", onWindowResize);
-      window.removeEventListener("mousemove", onDrag);
-      window.removeEventListener("mouseup", onDragEnd);
-    };
-  }, [isDragging, onWindowResize, onDrag]);
-
   return (
     <div
       style={{
         width: "100vw",
         height: "100vh",
+        position: "relative",
       }}
     >
-      <div
-        className={`split-view-container horizontal ${
-          isDragging ? "dragging" : ""
-        }`}
+      <SplitViewContainer
+        oriantation="horizontal"
+        initSizes={[
+          {
+            type: "fixed",
+            size: 56,
+          },
+          {
+            type: "resizeable",
+            size: 320,
+            minSize: 100,
+            maxSize: 600,
+          },
+          {
+            type: "auto",
+          },
+          {
+            type: "resizeable",
+            size: 280,
+            minSize: 100,
+            maxSize: 600,
+          },
+        ]}
       >
-        <div
-          className="split-view-drag-handle"
-          style={{
-            left: viewOneWidth + viewTwoWidth,
-          }}
-          onMouseDown={onDragStart}
-        />
-        <div
-          className="split-view-view"
-          style={{
-            width: viewOneWidth,
-            left: 0,
-          }}
-        >
+        <SplitViewView isFixed>
           <ActivityBar />
-        </div>
-        <div
-          className="split-view-view"
+        </SplitViewView>
+        <SplitViewView>
+          <Outlet />
+        </SplitViewView>
+        <SplitViewView
           style={{
-            width: viewTwoWidth,
-            left: viewOneWidth,
+            backgroundColor: "blue",
           }}
         >
-          <Outlet />
-        </div>
-        <div
-          className="split-view-view"
+          <SplitViewContainer
+            oriantation="vertical"
+            initSizes={[
+              {
+                type: "resizeable",
+                size: 400,
+                minSize: 200,
+                maxSize: 600,
+              },
+              {
+                type: "auto",
+              },
+            ]}
+          >
+            <SplitViewView
+              style={{
+                backgroundColor: "red",
+              }}
+            >
+              hello
+            </SplitViewView>
+
+            <SplitViewView
+              style={{
+                backgroundColor: "red",
+              }}
+            >
+              hello
+            </SplitViewView>
+          </SplitViewContainer>
+        </SplitViewView>
+        <SplitViewView
           style={{
-            width: viewThreeWidth,
-            left: viewOneWidth + viewTwoWidth,
+            backgroundColor: "red",
           }}
-        ></div>
-      </div>
+        >
+          hello
+        </SplitViewView>
+      </SplitViewContainer>
     </div>
   );
 };

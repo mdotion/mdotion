@@ -1,2 +1,3 @@
-export { default as Container } from "./lib/container";
-export { default as View } from "./lib/view";
+export { default as SplitViewContainer } from "./lib/container";
+export { default as SplitViewView } from "./lib/view";
+export { default as SplitViewDragHandle } from "./lib/drag-handle";

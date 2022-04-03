@@ -1,0 +1,24 @@
+.split-view-drag-handle {
+  position: absolute;
+  background-color: hsl(0, 0%, 80%);
+  z-index: 100;
+}
+
+.split-view-drag-handle.horizontal {
+  width: 1px;
+  height: 100%;
+  cursor: col-resize;
+}
+.split-view-drag-handle.vertical {
+  width: 100%;
+  height: 1px;
+  cursor: row-resize;
+}
+
+.split-view-drag-handle:hover {
+  background-color: blue;
+}
+
+.split-view-container.dragging > .split-view-drag-handle {
+  background-color: blue;
+}

@@ -1,31 +1,22 @@
 import React, { FC } from "react";
+import "./view.css";
 
 export interface SplitViewViewProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
-  fixedWidth?: boolean;
-  width?: number;
+  isFixed?: boolean;
   flex?: number;
 }
 
 const View: FC<SplitViewViewProps> = ({
-  fixedWidth,
-  width,
+  isFixed: fixedWidth,
   flex,
   className,
   ...props
 }) => {
-  return (
-    <div
-      className={`split-view-view ${className}`}
-      style={{
-        ...(fixedWidth ? { width: `${width}px` } : {}),
-      }}
-      {...props}
-    />
-  );
+  return <div className={`split-view-view ${className}`} {...props} />;
 };
 
 export default View;
