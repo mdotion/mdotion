@@ -13,7 +13,7 @@ export type ActivityBarMenu = {
 
 const EditorLayout = () => {
   const [isDragging, setIsDragging] = useState(false);
-  const [viewOneWidth, setViewOneWidth] = useState(64);
+  const [viewOneWidth, setViewOneWidth] = useState(56);
   const [viewTwoWidth, setViewTwoWidth] = useState(320);
   const [viewThreeWidth, setViewThreeWidth] = useState(
     window.innerWidth - viewOneWidth - viewTwoWidth
