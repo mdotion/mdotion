@@ -7,12 +7,22 @@ export interface SplitViewDragHandleProps
     HTMLDivElement
   > {
   oriantation: "horizontal" | "vertical";
+  isDragging: boolean;
 }
 const DragHandle: FC<SplitViewDragHandleProps> = ({
   oriantation,
+  isDragging,
+  className,
   ...props
 }) => {
-  return <div className={`split-view-drag-handle ${oriantation}`} {...props} />;
+  return (
+    <div
+      className={`split-view-drag-handle ${oriantation} ${
+        isDragging ? "dragging" : ""
+      } ${className}`}
+      {...props}
+    />
+  );
 };
 
 export default DragHandle;

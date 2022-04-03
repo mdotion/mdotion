@@ -16,9 +16,8 @@
 }
 
 .split-view-drag-handle:hover {
-  background-color: blue;
+  background-color: hsl(0, 0%, 50%);
 }
-
-.split-view-container.dragging > .split-view-drag-handle {
+.split-view-drag-handle.dragging {
   background-color: blue;
 }

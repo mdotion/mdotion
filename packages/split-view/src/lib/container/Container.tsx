@@ -202,6 +202,7 @@ const Container: FC<ActivityBarRootProps> = ({
             <DragHandle
               oriantation={oriantation}
               key={i}
+              isDragging={dargIndex === i}
               style={{
                 ...(oriantation === "horizontal"
                   ? { left: offset }

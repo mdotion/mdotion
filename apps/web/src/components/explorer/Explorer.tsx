@@ -19,7 +19,11 @@ const Explorer = () => {
           <CreateNewFolderOutlined />
         </SidebarPrimitive.ActionButton>
       </SidebarPrimitive.TitleBar>
-      <SidebarPrimitive.Content>
+      <SidebarPrimitive.Content
+        style={{
+          overflowY: "auto",
+        }}
+      >
         {/* Tree view start */}
         <TreeViewPrimitive.Root>
           <TreeViewPrimitive.Folder label="Folder 1">
@@ -76,6 +80,9 @@ const Explorer = () => {
               <TreeViewPrimitive.File label="File 3" />
             </TreeViewPrimitive.Folder>
           </TreeViewPrimitive.Folder>
+          <TreeViewPrimitive.File label="File 1" />
+          <TreeViewPrimitive.File label="File 2" />
+          <TreeViewPrimitive.File label="File 3" />
         </TreeViewPrimitive.Root>
         {/* Tree view end */}
       </SidebarPrimitive.Content>

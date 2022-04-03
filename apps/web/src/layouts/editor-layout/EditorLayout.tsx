@@ -19,10 +19,17 @@ const EditorLayout = () => {
             size: 56,
           },
           {
-            type: "resizeable",
-            size: 320,
-            minSize: 100,
-            maxSize: 600,
+            ...(false
+              ? {
+                  type: "fixed",
+                  size: 0,
+                }
+              : {
+                  type: "resizeable",
+                  size: 320,
+                  minSize: 100,
+                  maxSize: 600,
+                }),
           },
           {
             type: "auto",
@@ -50,13 +57,13 @@ const EditorLayout = () => {
             oriantation="vertical"
             initSizes={[
               {
-                type: "resizeable",
-                size: 400,
-                minSize: 200,
-                maxSize: 600,
+                type: "auto",
               },
               {
-                type: "auto",
+                type: "resizeable",
+                size: 400,
+                minSize: 50,
+                maxSize: 600,
               },
             ]}
           >
