@@ -1,9 +1,5 @@
 import * as ActivityBarPrimitive from "@mdotion/activity-bar";
-import {
-  FileCopyOutlined,
-  SearchOutlined,
-  SettingsOutlined,
-} from "@mui/icons-material";
+import { MdFileCopy, MdSearch, MdSettings } from "react-icons/md";
 import { useCallback } from "react";
 import { useMatch, useNavigate } from "react-router-dom";
 
@@ -25,7 +21,7 @@ const ActivityBar = () => {
               navigate("/");
             }}
           >
-            <FileCopyOutlined />
+            <MdFileCopy />
           </ActivityBarPrimitive.Button>
           <ActivityBarPrimitive.Button
             aria-label="Search button"
@@ -34,12 +30,12 @@ const ActivityBar = () => {
               navigate("/search");
             }}
           >
-            <SearchOutlined />
+            <MdSearch />
           </ActivityBarPrimitive.Button>
         </ActivityBarPrimitive.Group>
         <ActivityBarPrimitive.Group>
           <ActivityBarPrimitive.Button aria-label="Explorer Button">
-            <SettingsOutlined />
+            <MdSettings />
           </ActivityBarPrimitive.Button>
         </ActivityBarPrimitive.Group>
       </ActivityBarPrimitive.Content>

@@ -1,6 +1,6 @@
 .split-view-drag-handle {
   position: absolute;
-  background-color: hsl(0, 0%, 80%);
+  background-color: transparent;
   z-index: 100;
 }
 
@@ -16,8 +16,8 @@
 }
 
 .split-view-drag-handle:hover {
-  background-color: hsl(0, 0%, 50%);
+  background-color: transparent;
 }
 .split-view-drag-handle.dragging {
-  background-color: blue;
+  background-color: transparent;
 }

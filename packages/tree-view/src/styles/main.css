@@ -15,9 +15,7 @@
 }
 
 .tree-view-item-list {
-  margin-left: 1rem;
   padding: 0;
-  border-left: 1px solid hsl(0, 0%, 80%);
   height: 0;
   overflow: hidden;
 }
@@ -48,19 +46,19 @@
   flex: 1;
   text-align: left;
   cursor: pointer;
-  color: hsl(0, 0%, 50%);
   overflow: hidden;
 }
 
 .tree-view-item-button.active {
-  color: hsl(0, 0%, 0%);
+  color: #d1d7d9;
 }
 
 .tree-view-item-button:focus-visible {
-  background-color: hsl(0, 0%, 90%);
+  background-color: #40424f;
 }
 .tree-view-item-wrapper:hover {
-  background-color: hsl(0, 0%, 90%);
+  background-color: #21272c;
+  color: white;
 }
 
 .tree-view-item-icon {
@@ -69,7 +67,8 @@
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  margin-right: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 }
 
 .tree-view-item-label {
@@ -84,7 +83,6 @@
 }
 
 .tree-view-item-actions {
-  background-color: hsl(0, 0%, 90%);
   display: none;
   align-items: center;
   justify-content: flex-end;
@@ -100,9 +98,13 @@
   outline: none;
   background-color: transparent;
   cursor: pointer;
-  color: hsl(0, 0%, 50%);
+  color: inherit;
+}
+
+.tree-view-item-action-button svg {
+  font-size: 1.25rem;
 }
 
 .tree-view-item-action-button:hover {
-  color: hsl(0, 0%, 0%);
+  color: #d1d7d9;
 }

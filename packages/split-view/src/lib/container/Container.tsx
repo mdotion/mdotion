@@ -190,6 +190,7 @@ const Container: FC<ActivityBarRootProps> = ({
                     top: sizes.slice(0, i).reduce((a, b) => a + b, 0),
                     height: sizes[i],
                   }),
+              ...child.props.style,
             }}
           />
         ))}

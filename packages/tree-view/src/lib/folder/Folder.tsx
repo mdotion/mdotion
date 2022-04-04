@@ -14,7 +14,6 @@ const Folder: FC<TreeViewFolderProps> = ({ children, ...props }) => {
 
   return (
     <Item
-      isActive={expandChild}
       onClick={onExpand}
       icon={expandChild ? <MdFolderOpen /> : <MdFolder />}
       className={`tree-view-folder  ${expandChild ? "open" : "close"}`}

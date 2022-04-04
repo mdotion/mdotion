@@ -9,6 +9,7 @@ export interface TreeViewItemProps
   actions?: React.ReactNode;
   isActive?: boolean;
   icon?: React.ReactNode;
+  tabIndex: number;
 }
 
 const Item: FC<TreeViewItemProps> = ({
@@ -18,6 +19,7 @@ const Item: FC<TreeViewItemProps> = ({
   className,
   icon,
   children,
+  tabIndex,
   ...props
 }) => {
   return (
@@ -26,6 +28,10 @@ const Item: FC<TreeViewItemProps> = ({
         <button
           type="button"
           className={`tree-view-item-button ${isActive ? "active" : ""}`}
+          style={{
+            paddingLeft: `${tabIndex * 16}px`,
+            ...props.style,
+          }}
           {...props}
         >
           <span className="tree-view-item-icon">{icon}</span>

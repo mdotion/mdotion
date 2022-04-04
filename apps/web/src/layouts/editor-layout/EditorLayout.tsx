@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { ActivityBar } from "../../components/activity-bar";
 import { SplitViewContainer, SplitViewView } from "@mdotion/split-view";
+import "./editor-layout.css";
 
 const EditorLayout = () => {
   return (
@@ -14,10 +14,6 @@ const EditorLayout = () => {
       <SplitViewContainer
         oriantation="horizontal"
         initSizes={[
-          {
-            type: "fixed",
-            size: 56,
-          },
           {
             ...(false
               ? {
@@ -34,63 +30,12 @@ const EditorLayout = () => {
           {
             type: "auto",
           },
-          {
-            type: "resizeable",
-            size: 280,
-            minSize: 100,
-            maxSize: 600,
-          },
         ]}
       >
-        <SplitViewView isFixed>
-          <ActivityBar />
-        </SplitViewView>
         <SplitViewView>
           <Outlet />
         </SplitViewView>
-        <SplitViewView
-          style={{
-            backgroundColor: "blue",
-          }}
-        >
-          <SplitViewContainer
-            oriantation="vertical"
-            initSizes={[
-              {
-                type: "auto",
-              },
-              {
-                type: "resizeable",
-                size: 400,
-                minSize: 50,
-                maxSize: 600,
-              },
-            ]}
-          >
-            <SplitViewView
-              style={{
-                backgroundColor: "red",
-              }}
-            >
-              hello
-            </SplitViewView>
-
-            <SplitViewView
-              style={{
-                backgroundColor: "red",
-              }}
-            >
-              hello
-            </SplitViewView>
-          </SplitViewContainer>
-        </SplitViewView>
-        <SplitViewView
-          style={{
-            backgroundColor: "red",
-          }}
-        >
-          hello
-        </SplitViewView>
+        <SplitViewView className="container">Hello world</SplitViewView>
       </SplitViewContainer>
     </div>
   );

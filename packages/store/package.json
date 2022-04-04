@@ -1,0 +1,21 @@
+{
+  "name": "@mdotion/store",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf node_modules && rimraf dist && rimraf .turbo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "react": "^17.0.2",
+    "react-redux": "^7.2.8",
+    "redux-thunk": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "typescript": "^4.5.4"
+  }
+}
